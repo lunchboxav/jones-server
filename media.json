@@ -1,0 +1,17 @@
+[
+  {
+    "name": "aquaman.mov",
+    "directory": "/media/aquaman.mov",
+    "description": "Aquaman trailer"
+  },
+  {
+    "name": "holmes.mov",
+    "directory": "/media/holmes.mov",
+    "description": "Sherlock Holmes trailer"
+  },
+  {
+    "name": "poppins.mov",
+    "directory": "/media/poppins.mov",
+    "description": "Mary Poppins trailer"
+  }
+]
