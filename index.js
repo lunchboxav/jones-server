@@ -14,6 +14,11 @@ app.use(express.static('public'))
 app.get('/test', (req, res) => res.sendFile(__dirname + '/index.html'))
 app.get('/api/files', (req, res) => res.send(mediaFiles))
 
-io.on('connection', (socket) => console.log('a client is connected'))
+io.on('connection', function (socket) {
+  socket.on('media play', function (data) {
+    console.log(data)
+    socket.broadcast.emit('media change', data)
+  })
+})
 
 http.listen(port, () => console.log(`Listening on port ${port}`))

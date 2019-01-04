@@ -1,0 +1,26 @@
+<!DOCTYPE html> 
+<html>
+<head>
+  <title>Jones Controller</title>
+</head> 
+<body> 
+  <select name="media" id="media" onchange="setData()">
+    <option value="aquaman.mov">Aquaman</option>
+    <option value="holmes.mov">Sherlock Holmes</option>
+    <option value="poppins.mov">Mary Poppins</option>
+  </select>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    
+    function setData() {
+      var socket = io();
+
+      var select = document.getElementById('media');
+      var mediaName = select.options[select.selectedIndex].value;
+      // console.log(mediaName)
+      socket.emit('media play', {media: mediaName})
+    }
+
+  </script>
+</body> 
+</html>

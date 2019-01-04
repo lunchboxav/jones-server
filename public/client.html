@@ -4,13 +4,28 @@
   <title>Jones Client</title>
 </head> 
 <body> 
-  <video width="400" controls>
+  <video id="videoPlayer" width="400" controls>
     <source src="aquaman.mov" type="video/mp4">
     Your browser does not support HTML5 video.
   </video>
   <script src="/socket.io/socket.io.js"></script>
   <script>
-    var socket = io();
+    var socket = io()
+
+    /*let video = document.getElementById('videoPlayer')
+    let source = document.createElement('source')
+
+    source.setAttribute('src', 'aquaman.mov')
+
+    video.appendChild(source)
+    video.play()*/
+
+    socket.on('media change', function(data){
+      console.log(data.media)
+      var video = document.getElementById('videoPlayer')
+      video.src = data.media
+      video.play()
+    })
   </script>
 </body> 
 </html>
