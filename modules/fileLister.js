@@ -1,17 +1,15 @@
-// Someday we'll work on this again
+// import and use it in index like this
+// const { fileLister } = require('./modules/fileLister')
+// fileLister(testFolder, (err, result) => console.log(result))
 
-const fs = require('fs')
-const testFolder = '/../media'
-const path = require('path')
+const fs = require('fs');
 
-let fileLister = function(callback) {
-  let mediaFiles = []
-  let mediaPath = path.join(__dirname , testFolder)
-  fs.readdir(mediaPath, (err, files) => {
+let fileLister = (data, callback) => {
+  fs.readdir(data, (err, files ) => {
     files.forEach(file => {
-      mediaFiles.push(file)
-    })
-  }) 
-}
+      callback(err, file)
+    });
+  })
+}  
 
 module.exports.fileLister = fileLister
