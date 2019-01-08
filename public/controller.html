@@ -2,13 +2,44 @@
 <html>
 <head>
   <title>Jones Controller</title>
+  <link rel="stylesheet" href="/bulma.min.css">
+  <style>
+    #menu-logo {
+      padding: 20px;
+      padding-left: 10px;
+      background: #565656;
+      color: #fff;
+    }
+    #menu-logo h2 {
+      font-size: 150%;
+      font-weight: 700;
+    }
+  </style>
 </head> 
-<body> 
-  <select name="media" id="media" onchange="setData()">
-    <option value="aquaman.mov">Aquaman</option>
-    <option value="holmes.mov">Sherlock Holmes</option>
-    <option value="poppins.mov">Mary Poppins</option>
-  </select>
+<body>
+  <div class="columns">
+    <aside class="menu column is-2">
+      <div id="menu-logo">
+        <h2>Jones</h2>
+        <p>Digital Signage CMS</p>
+      </div>
+      <ul class="menu-list">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Files</a></li>
+        <li><a href="#">Clients</a></li>
+        <li><a href="#">Playlists</a></li>
+      </ul>
+    </aside>
+    <div class="column">
+      <select name="media" id="media" onchange="setData()">
+        <option value="aquaman.mov">Aquaman</option>
+        <option value="holmes.mov">Sherlock Holmes</option>
+        <option value="poppins.mov">Mary Poppins</option>
+      </select>
+    </div>
+  </div>
+   
+  
   <script src="/socket.io/socket.io.js"></script>
   <script>
     

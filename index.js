@@ -13,6 +13,7 @@ app.use(express.static('public'))
 /* this route is only for testing purpose */
 app.get('/test', (req, res) => res.sendFile(__dirname + '/index.html'))
 app.get('/api/files', (req, res) => res.send(mediaFiles))
+app.get('/bulma.min.css', (req, res) => res.sendFile(__dirname + '/node_modules/bulma/css/bulma.min.css'))
 
 io.on('connection', function (socket) {
   socket.on('media play', function (data) {
