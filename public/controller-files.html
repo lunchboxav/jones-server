@@ -14,6 +14,9 @@
       font-size: 150%;
       font-weight: 700;
     }
+    .card-container {
+      padding: 40px 20px;
+    }
   </style>
 </head> 
 <body>
@@ -25,17 +28,38 @@
       </div>
       <ul class="menu-list">
         <li><a href="#">Home</a></li>
-        <li><a href="#">Files</a></li>
-        <li><a href="#">Clients</a></li>
+        <li><a href="/controller-files.html" class="is-active">Files</a></li>
+        <li><a href="/controller-clients.html">Clients</a></li>
         <li><a href="#">Playlists</a></li>
       </ul>
     </aside>
-    <div class="column">
-      <select name="media" id="media" onchange="setData()">
-        <option value="aquaman.mov">Aquaman</option>
-        <option value="holmes.mov">Sherlock Holmes</option>
-        <option value="poppins.mov">Mary Poppins</option>
-      </select>
+    <div class="column is-6 card-container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>aquaman.mov</td>
+            <td><a href="/aquaman.mov">/media/aquaman.mov</a></td>
+            <td>Aquaman Trailer</td>
+          </tr>
+          <tr>
+            <td>holmes.mov</td>
+            <td><a href="/holmes.mov">/media/holmes.mov</a></td>
+            <td>Sherlock Holmes Trailer</td>
+          </tr>
+          <tr>
+            <td>poppins.mov</td>
+            <td><a href="/poppins.mov">/media/poppins.mov</a></td>
+            <td>Mary Poppins Trailer</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
    

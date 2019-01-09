@@ -1,0 +1,75 @@
+<!DOCTYPE html> 
+<html>
+<head>
+  <title>Jones Controller</title>
+  <link rel="stylesheet" href="/bulma.min.css">
+  <style>
+    #menu-logo {
+      padding: 20px;
+      padding-left: 10px;
+      background: #565656;
+      color: #fff;
+    }
+    #menu-logo h2 {
+      font-size: 150%;
+      font-weight: 700;
+    }
+    .card-container {
+      padding: 40px 20px;
+    }
+  </style>
+</head> 
+<body>
+  <div class="columns">
+    <aside class="menu column is-2">
+      <div id="menu-logo">
+        <h2>Jones</h2>
+        <p>Digital Signage CMS</p>
+      </div>
+      <ul class="menu-list">
+        <li><a href="#">Home</a></li>
+        <li><a href="/controller-files.html">Files</a></li>
+        <li><a href="/controller-clients.html" class="is-active">Clients</a></li>
+        <li><a href="#">Playlists</a></li>
+      </ul>
+    </aside>
+    <div class="column is-3 card-container">
+      <div class="card">
+        <div class="card-image">
+          <figure class="image is-4by3">
+            <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+          </figure>
+        </div>
+        <div class="card-content">
+          <div class="content">
+            <p>Digital Signage di jembatan penyebrangan stasiun kereta Tanah Abang.</p>
+            <p>File media yang sedang dimainkan:</p>
+            <div class="select">
+              <select name="media" id="media" onchange="setData()">
+                <option value="aquaman.mov">Aquaman</option>
+                <option value="holmes.mov">Sherlock Holmes</option>
+                <option value="poppins.mov">Mary Poppins</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   
+  
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    
+    function setData() {
+      var socket = io();
+
+      var select = document.getElementById('media');
+      var mediaName = select.options[select.selectedIndex].value;
+      // console.log(mediaName)
+      socket.emit('media play', {media: mediaName})
+    }
+
+  </script>
+</body> 
+</html>
